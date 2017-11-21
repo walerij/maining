@@ -1,4 +1,3 @@
-
 <?php
 
 /* @var $this yii\web\View */
@@ -7,7 +6,7 @@
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
-use app\models;
+
 
 $this->title = 'Подписка';
 $this->params['breadcrumbs'][] = $this->title;
@@ -20,12 +19,13 @@ $this->params['breadcrumbs'][] = $this->title;
         Подпишись на наши hash-ки
     </div>
     <div class="panel-body">
+
        <?php $form = ActiveForm::begin(); ?>
            
 
-           <?= $form->field($model, $attribute)); ?>
 
-           <?= $form->field( 'subject') ?>
+
+           <?= $form->field( $model,'subject') ?>
         <?php       ActiveForm::end(); ?>
     </div>
 </div>

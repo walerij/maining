@@ -8,6 +8,7 @@ use yii\web\Controller;
 use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
+use app\models\User;
 use app\models\ContactForm;
 
 class GuestController extends Controller{
@@ -15,7 +16,10 @@ class GuestController extends Controller{
     
     public function actionIndex()
     {
-        return $this->render('index');
+        $model=new User();
+        return $this->render('index', [
+            'model' => $model,
+        ]);
         //return $this->render('about');
     }
 }
