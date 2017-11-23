@@ -23,13 +23,15 @@ $this->title = 'Score';
             <tr>
                 <td><?=$score->score?></td>
                 <td><?=$score->scoreorg?></td>
-                <td><?=$score->scorenumber?></td>
+                <td><?=$score->scorenumber ?></td>
+              
             </tr>
 
         <?}
       ?>
+      
         </table>
-
+        <a class="btn btn-success" href="/guest/addscore/" >Добавить вывод</a>
     </div>
 </div>
 

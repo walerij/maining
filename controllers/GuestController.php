@@ -12,6 +12,8 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\User;
 use app\models\ContactForm;
+use app\models\UserscoreForm;
+use app\models\UserscoreRecord;
 
 class GuestController extends Controller{
     
@@ -33,4 +35,27 @@ class GuestController extends Controller{
 
         return $this->render('userscore',['userRecord'=>$userRecord]);
     }
+    
+    public function actionAddscore()
+    {
+        if(Yii::$app->request->isPost)
+        {
+             return $this->actionAddscorePost();
+        }
+        $score = new UserscoreForm();
+        return $this->render('addscore',['score'=>$score]);
+    }
+
+    public function actionAddscorePost() {
+        $score=new app\models\UserscoreForm();
+         if($score->load(Yii::$app->request->post()))
+          if($score->validate())
+          {
+              $scoreRecord=new scoreRecord();
+              $scoreRecord->setUserJoinForm($score);
+              $userRecord->save();
+              return $this->redirect('/user/thanks');
+          }
+    }
+
 }
