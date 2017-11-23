@@ -1,7 +1,22 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Administrator
- * Date: 21.11.2017
- * Time: 23:19
- */
+namespace app\models;
+
+use yii\base\Model;
+
+class UserForm extends Model{
+
+    public $nickname;
+    public $email;
+    public $passhash;
+
+
+  public function rules()
+  {
+      return [
+          ['email','required'],
+          ['nickname','required'],
+          ['passhash','required'],
+
+      ];
+  }
+}

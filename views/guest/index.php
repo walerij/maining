@@ -20,12 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
     <div class="panel-body">
 
-       <?php $form = ActiveForm::begin(); ?>
-           
-
-
-
-           <?= $form->field( $model,'subject') ?>
-        <?php       ActiveForm::end(); ?>
+      <h3>Здесь наш счет <a class="btn btn-success" href="/guest/userscore">Перейти</a> </h3>
     </div>
 </div>
+

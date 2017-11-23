@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Ноя 21 2017 г., 07:23
+-- Время создания: Ноя 23 2017 г., 06:49
 -- Версия сервера: 5.5.48
 -- Версия PHP: 5.6.19
 
@@ -38,7 +38,8 @@ CREATE TABLE IF NOT EXISTS `migration` (
 INSERT INTO `migration` (`version`, `apply_time`) VALUES
 ('m000000_000000_base', 1511196783),
 ('m171120_164749_create_users_table', 1511196786),
-('m171120_164827_create_userscore_table', 1511196786);
+('m171120_164827_create_userscore_table', 1511196786),
+('m171122_181036_add_scoreorg_column_to_userscore_table', 1511374282);
 
 -- --------------------------------------------------------
 
@@ -48,10 +49,17 @@ INSERT INTO `migration` (`version`, `apply_time`) VALUES
 
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL,
-  `nickmname` varchar(255) DEFAULT NULL,
+  `nickname` varchar(255) DEFAULT NULL,
   `email` varchar(255) NOT NULL,
   `passhash` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `users`
+--
+
+INSERT INTO `users` (`id`, `nickname`, `email`, `passhash`) VALUES
+(1, 'Walerij', 'wal@wal.ru', '123456');
 
 -- --------------------------------------------------------
 
@@ -62,8 +70,17 @@ CREATE TABLE IF NOT EXISTS `users` (
 CREATE TABLE IF NOT EXISTS `userscore` (
   `id` int(11) NOT NULL,
   `user_id` int(11) DEFAULT NULL,
-  `score` double DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `score` double DEFAULT NULL,
+  `scoreorg` varchar(255) DEFAULT NULL,
+  `scorenumber` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `userscore`
+--
+
+INSERT INTO `userscore` (`id`, `user_id`, `score`, `scoreorg`, `scorenumber`) VALUES
+(1, 1, 123456, 'КИВИ', '0123456789');
 
 --
 -- Индексы сохранённых таблиц
@@ -95,12 +112,12 @@ ALTER TABLE `userscore`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT для таблицы `userscore`
 --
 ALTER TABLE `userscore`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
