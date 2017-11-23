@@ -15,8 +15,8 @@ class UserscoreRecord extends ActiveRecord {
         $this->userid=$userscoreForm->userid;
         $this->score=$userscoreForm->score;
          
-        $this->userscoreorg=$userscoreForm->userscoreorg;
-        $this->userscorenumber=$userscoreForm->userscorenumber;
+        $this->scoreorg=$userscoreForm->userscoreorg;
+        $this->scorenumber=$userscoreForm->userscorenumber;
           
     }
 }

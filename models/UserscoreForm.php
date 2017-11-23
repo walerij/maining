@@ -4,8 +4,8 @@ class UserscoreForm extends \yii\base\Model{
 
     public $userid;
     public $score;
-    public $userscoreorg;
-    public $userscorenumber;
+    public $scoreorg;
+    public $scorenumber;
 
     public function rules(){
         return [
@@ -18,8 +18,8 @@ class UserscoreForm extends \yii\base\Model{
     {
         $this->userid=$userscoreRecord->userid;
         $this->score=$userscoreRecord->score;
-        $this->userscoreorg=$userscoreRecord->usscoreorg;
-        $this->userscorenumber=$userscoreRecord->userscorenumber;
+        $this->scoreorg=$userscoreRecord->scoreorg;
+        $this->scorenumber=$userscoreRecord->scorenumber;
         
     }
 

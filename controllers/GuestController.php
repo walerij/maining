@@ -47,15 +47,16 @@ class GuestController extends Controller{
     }
 
     public function actionAddscorePost() {
-        $score=new app\models\UserscoreForm();
+        $score=new UserscoreForm();
          if($score->load(Yii::$app->request->post()))
           if($score->validate())
           {
-              $scoreRecord=new scoreRecord();
-              $scoreRecord->setUserJoinForm($score);
-              $userRecord->save();
-              return $this->redirect('/user/thanks');
+              $scoreRecord=new UserscoreRecord();
+              $scoreRecord->setScore($score);
+              $scoreRecord->save();
+              return $this->redirect('/guest/index/');
           }
+      return $this->render('addscore',['score'=>$score]);
     }
 
 }
