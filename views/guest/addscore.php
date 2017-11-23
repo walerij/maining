@@ -14,7 +14,8 @@ $this->title = 'Add Score';
     <div class="panel-body">
         <h1><?= Html::encode($this->title) ?></h1>
 
-        <?php $form = ActiveForm::begin(['id'=>'user-addscore-form']);
+        <?php $form = ActiveForm::begin(['id'=>'score']);
+        //['id'=>'user-addscore-form']
         ?>
 
         <?= $form->field($score, 'scoreorg')->textInput(['autofocus' => true]) ?>
