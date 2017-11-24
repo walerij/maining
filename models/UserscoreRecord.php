@@ -12,11 +12,11 @@ class UserscoreRecord extends ActiveRecord {
     
     public function setScore($userscoreForm)
     {
-        $this->userid=$userscoreForm->userid;
-        $this->score=$userscoreForm->score;
+       // $this->userid=$userscoreForm->userid;
+       // $this->score=$userscoreForm->score;
          
-        $this->scoreorg=$userscoreForm->userscoreorg;
-        $this->scorenumber=$userscoreForm->userscorenumber;
+        $this->scoreorg=$userscoreForm->scoreorg;
+        $this->scorenumber=$userscoreForm->scorenumber;
           
     }
 }

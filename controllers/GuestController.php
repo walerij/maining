@@ -50,7 +50,8 @@ class GuestController extends Controller{
         $score=new UserscoreForm();
         // echo var_dump(Yii::$app->request->post());
         if($score->load(Yii::$app->request->post()))
-            echo $score->score.'=='.$score->scoreorg.'=='.$score->userid."=!";
+          //echo $score->score.'=='.$score->scoreorg.'=='.$score->userid."=!";
+
          if($score->validate())
           {
               $scoreRecord=new UserscoreRecord();
@@ -59,7 +60,7 @@ class GuestController extends Controller{
               return $this->redirect('/guest/index/');
           }
 
-      //return $this->render('addscore',['score'=>$score]);
+      return $this->render('addscore',['score'=>$score]);
     }
 
 }
